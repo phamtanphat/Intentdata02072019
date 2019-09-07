@@ -10,7 +10,8 @@ import androidx.lifecycle.ViewModel;
 
 public class Mainmodel extends ViewModel implements LifecycleObserver {
 
-    public Mainmodel() {
+    public Mainmodel(Lifecycle lifecycle) {
+        lifecycle.addObserver(this);
     }
 
     private TextView txtMain;
