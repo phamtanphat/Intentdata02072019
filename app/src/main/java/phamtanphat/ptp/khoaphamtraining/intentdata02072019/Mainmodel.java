@@ -65,5 +65,4 @@ public class Mainmodel extends ViewModel implements LifecycleObserver {
             }
         },1000);
     }
-
 }

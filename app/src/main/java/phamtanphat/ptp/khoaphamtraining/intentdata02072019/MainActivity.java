@@ -1,22 +1,27 @@
 package phamtanphat.ptp.khoaphamtraining.intentdata02072019;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModel;
-import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
-import android.widget.TextView;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView txt;
-    Mainmodel mainmodel;
+    Button btnIntentString;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        txt = findViewById(R.id.textview);
-        mainmodel = new Mainmodel(getLifecycle());
-        mainmodel.setTxtMain(txt);
+
+        btnIntentString = findViewById(R.id.textviewString);
+
+        //1 . 8 : lambda
+        btnIntentString.setOnClickListener(view ->
+                Toast.makeText(this, "Intent", Toast.LENGTH_SHORT).show()
+        );
+
     }
 }
