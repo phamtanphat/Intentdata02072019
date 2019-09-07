@@ -4,9 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import java.io.Serializable;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,6 +29,13 @@ public class MainActivity extends AppCompatActivity {
         });
         btnIntentInteger.setOnClickListener(view -> {
             sendDataIntent(Appconstant.KEY_INTEGER,10);
+//            Serializable;
+//            Parcelable;
+            // Send data object
+            // send data Arraylist<Object>
+
+            // Viet generic cho 2 dua tren
+
         });
     }
     //generic type : tu thay doi kieu du lieu
