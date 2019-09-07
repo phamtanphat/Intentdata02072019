@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnIntentString;
+    Button btnIntentString,btnIntentInteger;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,13 +18,26 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         btnIntentString = findViewById(R.id.textviewString);
+        btnIntentInteger = findViewById(R.id.textviewInteger);
 
         //1 . 8 : lambda
         btnIntentString.setOnClickListener(view -> {
-            Intent intent = new Intent(MainActivity.this,Main2Activity.class);
-            intent.putExtra("chuoi","Hello main 2");
-            startActivity(intent);
+            sendDataIntent(Appconstant.KEY_STRING,"Hello main 2");
         });
-
+        btnIntentInteger.setOnClickListener(view -> {
+            sendDataIntent(Appconstant.KEY_INTEGER,10);
+        });
     }
+    //generic type : tu thay doi kieu du lieu
+    private <T> void sendDataIntent(String key ,T value ){
+        Intent intent = new Intent(MainActivity.this,Main2Activity.class);
+        if (value instanceof String){
+            intent.putExtra(key,(String) value);
+        }
+        if (value instanceof Integer){
+            intent.putExtra(key,(Integer) value);
+        }
+        startActivity(intent);
+    }
+
 }
