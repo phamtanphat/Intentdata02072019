@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class Main2Activity extends AppCompatActivity {
 
     @Override
@@ -24,7 +26,7 @@ public class Main2Activity extends AppCompatActivity {
 //        Toast.makeText(this, value + "", Toast.LENGTH_SHORT).show();
         //3 : Lay dang object
         Intent intent = getIntent();
-        Sinhvien sinhvien = (Sinhvien) intent.getSerializableExtra(Appconstant.KEY_OBJECT.toString());
-        Toast.makeText(this, sinhvien.ten + "", Toast.LENGTH_SHORT).show();
+        ArrayList<Sinhvien> sinhvien = (ArrayList<Sinhvien>) intent.getSerializableExtra(Appconstant.KEY_ARRAY_OBJECT.toString());
+        Toast.makeText(this, sinhvien.get(0).ten+ "", Toast.LENGTH_SHORT).show();
     }
 }
