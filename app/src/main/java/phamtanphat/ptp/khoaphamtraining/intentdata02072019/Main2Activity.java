@@ -26,7 +26,7 @@ public class Main2Activity extends AppCompatActivity {
 //        Toast.makeText(this, value + "", Toast.LENGTH_SHORT).show();
         //3 : Lay dang object
         Intent intent = getIntent();
-        ArrayList<Sinhvien> sinhvien = (ArrayList<Sinhvien>) intent.getSerializableExtra(Appconstant.KEY_ARRAY_OBJECT.toString());
+        ArrayList<Sinhvien> sinhvien = intent.getParcelableArrayListExtra(Appconstant.KEY_ARRAY_OBJECT.toString());
         Toast.makeText(this, sinhvien.get(0).ten+ "", Toast.LENGTH_SHORT).show();
     }
 }
