@@ -26,10 +26,10 @@ public class MainActivity extends AppCompatActivity {
 
         //1 . 8 : lambda
         btnIntentString.setOnClickListener(view -> {
-            sendDataIntent(Appconstant.KEY_STRING,"Hello main 2");
+            sendDataIntent(Appconstant.KEY_STRING.toString(),"Hello main 2");
         });
         btnIntentInteger.setOnClickListener(view -> {
-            sendDataIntent(Appconstant.KEY_INTEGER,10);
+            sendDataIntent(Appconstant.KEY_INTEGER.toString(),10);
 //            Serializable;
 //            Parcelable;
             // Send data object
@@ -40,6 +40,10 @@ public class MainActivity extends AppCompatActivity {
         });
         btnIntentObject.setOnClickListener(view -> {
             Sinhvien sinhvien = new Sinhvien("Sinh vien A");
+
+            Intent intent = new Intent(MainActivity.this,Main2Activity.class);
+            intent.putExtra(Appconstant.KEY_OBJECT.toString(),sinhvien);
+            startActivity(intent);
         });
     }
     //generic type : tu thay doi kieu du lieu
