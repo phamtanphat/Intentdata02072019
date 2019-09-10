@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
             Sinhvien sinhvien = new Sinhvien("Sinh vien A");
 
             Intent intent = new Intent(MainActivity.this,Main2Activity.class);
-            intent.putExtra(Appconstant.KEY_OBJECT.toString(),sinhvien);
+            intent.putExtra(Appconstant.KEY_OBJECT.toString(), (Serializable) sinhvien);
             startActivity(intent);
         });
     }

@@ -19,8 +19,12 @@ public class Main2Activity extends AppCompatActivity {
 //        String value = intent.getStringExtra(Appconstant.KEY_STRING);
 //        Toast.makeText(this, value, Toast.LENGTH_SHORT).show();
         //2 : Lay du lieu dang int
+//        Intent intent = getIntent();
+//        int value = intent.getIntExtra(Appconstant.KEY_INTEGER,Integer.MIN_VALUE);
+//        Toast.makeText(this, value + "", Toast.LENGTH_SHORT).show();
+        //3 : Lay dang object
         Intent intent = getIntent();
-        int value = intent.getIntExtra(Appconstant.KEY_INTEGER,Integer.MIN_VALUE);
-        Toast.makeText(this, value + "", Toast.LENGTH_SHORT).show();
+        Sinhvien sinhvien = (Sinhvien) intent.getSerializableExtra(Appconstant.KEY_OBJECT.toString());
+        Toast.makeText(this, sinhvien.ten + "", Toast.LENGTH_SHORT).show();
     }
 }
