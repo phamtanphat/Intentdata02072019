@@ -10,10 +10,12 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnIntentString,btnIntentInteger,btnIntentObject;
+    Button btnIntentString,btnIntentInteger,btnIntentObject,btnIntentArrayObject;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         btnIntentString = findViewById(R.id.textviewString);
         btnIntentInteger = findViewById(R.id.textviewInteger);
         btnIntentObject = findViewById(R.id.textviewObject);
+        btnIntentArrayObject = findViewById(R.id.textviewArrayObject);
 
         //1 . 8 : lambda
         btnIntentString.setOnClickListener(view -> {
@@ -30,21 +33,24 @@ public class MainActivity extends AppCompatActivity {
         });
         btnIntentInteger.setOnClickListener(view -> {
             sendDataIntent(Appconstant.KEY_INTEGER.toString(),10);
-//            Serializable;
-//            Parcelable;
-            // Send data object
-            // send data Arraylist<Object>
-
-            // Viet generic cho 2 dua tren
-
         });
         btnIntentObject.setOnClickListener(view -> {
             Sinhvien sinhvien = new Sinhvien("Sinh vien A");
 
-            Intent intent = new Intent(MainActivity.this,Main2Activity.class);
-            intent.putExtra(Appconstant.KEY_OBJECT.toString(), (Serializable) sinhvien);
-            startActivity(intent);
+//            Intent intent = new Intent(MainActivity.this,Main2Activity.class);
+//            intent.putExtra(Appconstant.KEY_OBJECT.toString(), sinhvien);
+//            startActivity(intent);
+            sendDataIntent(Appconstant.KEY_OBJECT.toString(),sinhvien);
         });
+
+       btnIntentArrayObject.setOnClickListener(view -> {
+           ArrayList<Sinhvien> sinhviens = new ArrayList<>();
+           sinhviens.add(new Sinhvien("A"));
+           sinhviens.add(new Sinhvien("B"));
+           sinhviens.add(new Sinhvien("C"));
+           sinhviens.add(new Sinhvien("D"));
+
+       });
     }
     //generic type : tu thay doi kieu du lieu
     private <T> void sendDataIntent(String key ,T value ){
@@ -54,6 +60,9 @@ public class MainActivity extends AppCompatActivity {
         }
         if (value instanceof Integer){
             intent.putExtra(key,(Integer) value);
+        }
+        if (value instanceof Sinhvien){
+            intent.putExtra(key,(Serializable) value);
         }
         startActivity(intent);
     }
