@@ -13,7 +13,7 @@ import java.io.Serializable;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnIntentString,btnIntentInteger;
+    Button btnIntentString,btnIntentInteger,btnIntentObject;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
         btnIntentString = findViewById(R.id.textviewString);
         btnIntentInteger = findViewById(R.id.textviewInteger);
+        btnIntentObject = findViewById(R.id.textviewObject);
 
         //1 . 8 : lambda
         btnIntentString.setOnClickListener(view -> {
@@ -36,6 +37,9 @@ public class MainActivity extends AppCompatActivity {
 
             // Viet generic cho 2 dua tren
 
+        });
+        btnIntentObject.setOnClickListener(view -> {
+            Sinhvien sinhvien = new Sinhvien("Sinh vien A");
         });
     }
     //generic type : tu thay doi kieu du lieu
